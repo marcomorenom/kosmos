@@ -22,6 +22,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -40,6 +41,8 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     private val newWordActivityRequestCode = 1
+    private val usersActivityRequestCode = 2
+
     @Inject lateinit var repository: WordRepository
     private val wordViewModel: WordViewModel by viewModels {
         WordViewModelFactory(repository)
@@ -50,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
+        val menu = findViewById<AppCompatButton>(R.id.user_btn)
         val adapter = WordListAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -58,6 +62,11 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener {
             val intent = Intent(this@MainActivity, NewWordActivity::class.java)
             startActivityForResult(intent, newWordActivityRequestCode)
+        }
+
+        menu.setOnClickListener {
+            val intent = Intent(this@MainActivity, UsersActivity::class.java)
+            startActivityForResult(intent, usersActivityRequestCode)
         }
 
         
@@ -79,7 +88,10 @@ class MainActivity : AppCompatActivity() {
                 val newWord = Word(word= word.word,country=word.country, timeStamp=word.timeStamp)
                 wordViewModel.insert(newWord)
             }
-        } else {
+        } else if(requestCode == usersActivityRequestCode && resultCode == Activity.RESULT_OK){
+         // toDo
+        }
+        else {
             Toast.makeText(
                 applicationContext,
                 R.string.empty_not_saved,
@@ -87,4 +99,6 @@ class MainActivity : AppCompatActivity() {
             ).show()
         }
     }
+
+
 }

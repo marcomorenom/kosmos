@@ -21,20 +21,24 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.android.roomwordssample.applicaiton.daos.UserDao
 import com.example.android.roomwordssample.applicaiton.daos.WordDao
+import com.example.android.roomwordssample.domain.User
 import com.example.android.roomwordssample.domain.Word
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 /**
  * This is the backend. The database. This used to be done by the OpenHelper.
  * The fact that this has very few comments emphasizes its coolness.
  */
-@Database(entities = [Word::class], version = 1)
+@Database(entities = [
+    Word::class,
+    User::class
+                     ], version = 2)
 abstract class WordRoomDatabase : RoomDatabase() {
 
     abstract fun wordDao(): WordDao
+    abstract fun userDao(): UserDao
 
     companion object {
         @Volatile
@@ -73,11 +77,6 @@ abstract class WordRoomDatabase : RoomDatabase() {
                 super.onCreate(db)
                 // If you want to keep the data through app restarts,
                 // comment out the following line.
-                INSTANCE?.let { database ->
-                    scope.launch(Dispatchers.IO) {
-                        populateDatabase(database.wordDao())
-                    }
-                }
             }
         }
 

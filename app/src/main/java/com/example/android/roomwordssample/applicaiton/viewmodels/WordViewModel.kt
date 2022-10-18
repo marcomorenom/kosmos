@@ -55,6 +55,10 @@ class WordViewModelFactory @Inject constructor(private val repository: WordRepos
             @Suppress("UNCHECKED_CAST")
             return WordViewModel(repository) as T
         }
+        if (modelClass.isAssignableFrom(UsersViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return UsersViewModel() as T
+        }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

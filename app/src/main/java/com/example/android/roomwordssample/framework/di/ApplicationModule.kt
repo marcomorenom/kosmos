@@ -32,7 +32,7 @@ class ApplicationModule {
     @Singleton
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://reqres.in/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
