@@ -3,7 +3,7 @@
     package="com.example.android.roomwordssample">
 
     <application
-        android:name=".WordsApplication"
+        android:name=".applicaiton.WordsApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".framework.ui.MainActivity"
             android:label="@string/app_name"
             android:exported="true">
             <intent-filter>
@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewWordActivity" />
+        <activity android:name=".framework.ui.NewWordActivity" />
     </application>
 
 </manifest>

@@ -16,7 +16,17 @@ limitations under the License. -->
     <string name="app_name">RoomWordsSample</string>
     <string name="action_settings">Settings</string>
     <string name="hint_word">Word…</string>
+    <string name="country_word">Country…</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Word not saved because it is empty.</string>
     <string name="add_word">Add word</string>
+    <string name="default_word">OTRO</string>
+
+
+    <string-array name="country_word_list">
+        <item>Seleccione país</item>
+        <item>EU</item>
+        <item>MX</item>
+        <item>OTRO</item>
+    </string-array>
 </resources>

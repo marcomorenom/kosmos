@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.roomwordssample
+package com.example.android.roomwordssample.framework.ui
 
 import android.app.Activity
 import android.content.Intent
@@ -25,7 +25,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.android.roomwordssample.*
+import com.example.android.roomwordssample.applicaiton.WordsApplication
+import com.example.android.roomwordssample.applicaiton.adapters.WordListAdapter
+import com.example.android.roomwordssample.domain.Word
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
 
@@ -64,8 +69,9 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
             intentData?.getStringExtra(NewWordActivity.EXTRA_REPLY)?.let { reply ->
-                val word = Word(reply)
-                wordViewModel.insert(word)
+                val word = Gson().fromJson(reply, Word::class.java)
+                val newWord = Word(word= word.word,country=word.country, timeStamp=word.timeStamp)
+                wordViewModel.insert(newWord)
             }
         } else {
             Toast.makeText(

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.roomwordssample
+package com.example.android.roomwordssample.applicaiton.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +23,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android.roomwordssample.WordListAdapter.WordViewHolder
+import com.example.android.roomwordssample.R
+import com.example.android.roomwordssample.applicaiton.adapters.WordListAdapter.WordViewHolder
+import com.example.android.roomwordssample.domain.Word
+import java.text.SimpleDateFormat
+import java.util.*
 
 class WordListAdapter : ListAdapter<Word, WordViewHolder>(WORDS_COMPARATOR) {
 
@@ -33,14 +37,34 @@ class WordListAdapter : ListAdapter<Word, WordViewHolder>(WORDS_COMPARATOR) {
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current.word)
+        holder.bind(current)
     }
 
     class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val wordItemView: TextView = itemView.findViewById(R.id.textView)
+        private val wordItemValue: TextView = itemView.findViewById(R.id.item_word_value)
+        private val wordItemTime: TextView = itemView.findViewById(R.id.item_word_time)
+        private val wordItemCountry: TextView = itemView.findViewById(R.id.item_word_country)
 
-        fun bind(text: String?) {
-            wordItemView.text = text
+        fun bind(word: Word?) {
+            word?.run {
+                wordItemValue.text = this.word
+                wordItemTime.text = parseDate(timeStamp)
+                wordItemCountry.text = parseCountry(
+                    itemView.context.resources.getString(R.string.default_word),
+                    country
+                )
+            }
+        }
+
+        private fun parseCountry(default: String, country: String): String{
+            return if (country == "US" || country == "MX") country
+            else return default
+        }
+
+        private fun parseDate(timeStamp: Long): String{
+            val date = Date()
+            date.time = timeStamp
+            return SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(date)
         }
 
         companion object {

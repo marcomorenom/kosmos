@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package com.example.android.roomwordssample
+package com.example.android.roomwordssample.domain
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 
 /**
  * A basic class representing an entity that is a row in a one-column database table.
@@ -32,4 +33,9 @@ import androidx.room.PrimaryKey
  */
 
 @Entity(tableName = "word_table")
-data class Word(@PrimaryKey @ColumnInfo(name = "word") val word: String)
+data class Word(
+    @PrimaryKey @ColumnInfo(name = "word")
+    @SerializedName("word") val word: String,
+    @SerializedName("country") val country: String,
+    @SerializedName("timeStamp") val timeStamp: Long
+    )

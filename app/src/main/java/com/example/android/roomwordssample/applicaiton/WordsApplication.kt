@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
-package com.example.android.roomwordssample
+package com.example.android.roomwordssample.applicaiton
 
 import android.app.Application
+import com.example.android.roomwordssample.applicaiton.repositories.WordRepository
+import com.example.android.roomwordssample.framework.persistance.WordRoomDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 

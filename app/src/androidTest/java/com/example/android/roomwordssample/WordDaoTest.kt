@@ -20,6 +20,9 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.example.android.roomwordssample.applicaiton.daos.WordDao
+import com.example.android.roomwordssample.domain.Word
+import com.example.android.roomwordssample.framework.persistance.WordRoomDatabase
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.After
