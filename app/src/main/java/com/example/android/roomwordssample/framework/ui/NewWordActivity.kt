@@ -28,12 +28,14 @@ import com.example.android.roomwordssample.R
 import com.example.android.roomwordssample.domain.Word
 import com.example.android.roomwordssample.domain.utils.WordValidatorImpl
 import com.google.gson.Gson
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
 /**
  * Activity for entering a word.
  */
 
+@AndroidEntryPoint
 class NewWordActivity : AppCompatActivity() {
 
     private lateinit var word: Word

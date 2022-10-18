@@ -26,17 +26,23 @@ import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.roomwordssample.*
-import com.example.android.roomwordssample.applicaiton.WordsApplication
 import com.example.android.roomwordssample.applicaiton.adapters.WordListAdapter
+import com.example.android.roomwordssample.applicaiton.repositories.WordRepository
+import com.example.android.roomwordssample.applicaiton.viewmodels.WordViewModel
+import com.example.android.roomwordssample.applicaiton.viewmodels.WordViewModelFactory
 import com.example.android.roomwordssample.domain.Word
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.gson.Gson
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val newWordActivityRequestCode = 1
+    @Inject lateinit var repository: WordRepository
     private val wordViewModel: WordViewModel by viewModels {
-        WordViewModelFactory((application as WordsApplication).repository)
+        WordViewModelFactory(repository)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

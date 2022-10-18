@@ -21,6 +21,7 @@ limitations under the License. -->
     <string name="empty_not_saved">Word not saved because it is empty.</string>
     <string name="add_word">Add word</string>
     <string name="default_word">OTRO</string>
+    <string name="user_btn">Go to users</string>
 
 
     <string-array name="country_word_list">

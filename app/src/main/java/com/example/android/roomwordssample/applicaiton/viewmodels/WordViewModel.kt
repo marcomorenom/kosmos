@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.roomwordssample
+package com.example.android.roomwordssample.applicaiton.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -23,14 +23,17 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.android.roomwordssample.applicaiton.repositories.WordRepository
 import com.example.android.roomwordssample.domain.Word
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * View Model to keep a reference to the word repository and
  * an up-to-date list of all words.
  */
 
-class WordViewModel(private val repository: WordRepository) : ViewModel() {
+@HiltViewModel
+class WordViewModel @Inject constructor(private val repository: WordRepository) : ViewModel() {
 
     // Using LiveData and caching what allWords returns has several benefits:
     // - We can put an observer on the data (instead of polling for changes) and only update the
@@ -46,7 +49,7 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
     }
 }
 
-class WordViewModelFactory(private val repository: WordRepository) : ViewModelProvider.Factory {
+class WordViewModelFactory @Inject constructor(private val repository: WordRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(WordViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")

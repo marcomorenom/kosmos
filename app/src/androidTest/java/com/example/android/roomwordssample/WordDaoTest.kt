@@ -63,36 +63,36 @@ class WordDaoTest {
         db.close()
     }
 
-    @Test
-    @Throws(Exception::class)
-    fun insertAndGetWord() = runBlocking {
-        val word = Word("word")
-        wordDao.insert(word)
-        val allWords = wordDao.getAlphabetizedWords().first()
-        assertEquals(allWords[0].word, word.word)
-    }
+//    @Test
+//    @Throws(Exception::class)
+//    fun insertAndGetWord() = runBlocking {
+//        val word = Word("word")
+//        wordDao.insert(word)
+//        val allWords = wordDao.getAlphabetizedWords().first()
+//        assertEquals(allWords[0].word, word.word)
+//    }
 
-    @Test
-    @Throws(Exception::class)
-    fun getAllWords() = runBlocking {
-        val word = Word("aaa")
-        wordDao.insert(word)
-        val word2 = Word("bbb")
-        wordDao.insert(word2)
-        val allWords = wordDao.getAlphabetizedWords().first()
-        assertEquals(allWords[0].word, word.word)
-        assertEquals(allWords[1].word, word2.word)
-    }
-
-    @Test
-    @Throws(Exception::class)
-    fun deleteAll() = runBlocking {
-        val word = Word("word")
-        wordDao.insert(word)
-        val word2 = Word("word2")
-        wordDao.insert(word2)
-        wordDao.deleteAll()
-        val allWords = wordDao.getAlphabetizedWords().first()
-        assertTrue(allWords.isEmpty())
-    }
+//    @Test
+//    @Throws(Exception::class)
+//    fun getAllWords() = runBlocking {
+//        val word = Word("aaa")
+//        wordDao.insert(word)
+//        val word2 = Word("bbb")
+//        wordDao.insert(word2)
+//        val allWords = wordDao.getAlphabetizedWords().first()
+//        assertEquals(allWords[0].word, word.word)
+//        assertEquals(allWords[1].word, word2.word)
+//    }
+//
+//    @Test
+//    @Throws(Exception::class)
+//    fun deleteAll() = runBlocking {
+//        val word = Word("word")
+//        wordDao.insert(word)
+//        val word2 = Word("word2")
+//        wordDao.insert(word2)
+//        wordDao.deleteAll()
+//        val allWords = wordDao.getAlphabetizedWords().first()
+//        assertTrue(allWords.isEmpty())
+//    }
 }
