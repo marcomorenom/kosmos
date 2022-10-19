@@ -25,7 +25,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.roomwordssample.R
 import com.example.android.roomwordssample.applicaiton.adapters.WordListAdapter.WordViewHolder
-import com.example.android.roomwordssample.domain.Word
+import com.example.android.roomwordssample.domain.businessEntities.Word
 import java.text.SimpleDateFormat
 import java.util.*
 

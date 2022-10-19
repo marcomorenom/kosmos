@@ -1,6 +1,6 @@
 package com.example.android.roomwordssample.domain.utils
 
-import com.example.android.roomwordssample.domain.Word
+import com.example.android.roomwordssample.domain.businessEntities.Word
 
 interface WordValidator {
 

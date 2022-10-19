@@ -22,7 +22,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.android.roomwordssample.applicaiton.repositories.WordRepository
-import com.example.android.roomwordssample.domain.Word
+import com.example.android.roomwordssample.domain.businessEntities.Word
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -49,7 +49,11 @@ class WordViewModel @Inject constructor(private val repository: WordRepository) 
     }
 }
 
+
+// toDo: change this implementation for an abstraction of repository instead a specific repo class such as WordRepository
+
 class WordViewModelFactory @Inject constructor(private val repository: WordRepository) : ViewModelProvider.Factory {
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(WordViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
@@ -57,7 +61,7 @@ class WordViewModelFactory @Inject constructor(private val repository: WordRepos
         }
         if (modelClass.isAssignableFrom(UsersViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return UsersViewModel() as T
+            return UsersViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

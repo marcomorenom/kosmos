@@ -1,8 +1,8 @@
 package com.example.android.roomwordssample.applicaiton.repositories
 
-import com.example.android.roomwordssample.domain.User
+import com.example.android.roomwordssample.domain.dtos.UserPageDTO
 
 interface UserRepository {
 
-    fun getUsers(): User
+    suspend fun getUsersPage(): UserPageDTO
 }

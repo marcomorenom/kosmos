@@ -31,7 +31,7 @@ import com.example.android.roomwordssample.applicaiton.adapters.WordListAdapter
 import com.example.android.roomwordssample.applicaiton.repositories.WordRepository
 import com.example.android.roomwordssample.applicaiton.viewmodels.WordViewModel
 import com.example.android.roomwordssample.applicaiton.viewmodels.WordViewModelFactory
-import com.example.android.roomwordssample.domain.Word
+import com.example.android.roomwordssample.domain.businessEntities.Word
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint

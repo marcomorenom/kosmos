@@ -16,7 +16,7 @@
 package com.example.android.roomwordssample.applicaiton.repositories
 
 import androidx.annotation.WorkerThread
-import com.example.android.roomwordssample.domain.Word
+import com.example.android.roomwordssample.domain.businessEntities.Word
 import com.example.android.roomwordssample.framework.persistance.WordRoomDatabase
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

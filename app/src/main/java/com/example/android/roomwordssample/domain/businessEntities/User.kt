@@ -1,4 +1,4 @@
-package com.example.android.roomwordssample.domain
+package com.example.android.roomwordssample.domain.businessEntities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

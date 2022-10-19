@@ -23,8 +23,8 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.android.roomwordssample.applicaiton.daos.UserDao
 import com.example.android.roomwordssample.applicaiton.daos.WordDao
-import com.example.android.roomwordssample.domain.User
-import com.example.android.roomwordssample.domain.Word
+import com.example.android.roomwordssample.domain.businessEntities.User
+import com.example.android.roomwordssample.domain.businessEntities.Word
 import kotlinx.coroutines.CoroutineScope
 
 /**

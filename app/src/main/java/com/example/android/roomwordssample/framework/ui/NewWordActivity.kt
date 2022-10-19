@@ -25,7 +25,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.roomwordssample.R
-import com.example.android.roomwordssample.domain.Word
+import com.example.android.roomwordssample.domain.businessEntities.Word
 import com.example.android.roomwordssample.domain.utils.WordValidatorImpl
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
